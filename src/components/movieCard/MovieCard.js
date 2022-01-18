@@ -16,7 +16,7 @@ export default function MovieCard({ movie, delay, dimensions }) {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: delay + 0.1 }}
+          transition={{ delay: delay + 0.3 }}
         >
           <Link to={`/movie/${movie.id}`}>
             <Poster src={imgSrc} />
@@ -26,7 +26,13 @@ export default function MovieCard({ movie, delay, dimensions }) {
 
       <InfoContainer>
         <BigTitle>{movie.title}</BigTitle>
-        <ReleaseDate>{`Release Date: ${movie.release_date}`}</ReleaseDate>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, yoyo: Infinity }}
+        >
+          <ReleaseDate>{`Release Date: ${movie.release_date}`}</ReleaseDate>
+        </motion.div>
         {movie.overview}
       </InfoContainer>
     </StyledMovieCard>
