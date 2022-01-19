@@ -7,8 +7,15 @@ import { Link } from "react-router-dom";
 import { StyledMovieCard, Poster, InfoContainer, ReleaseDate } from "./styles";
 import { BigTitle } from "../../styles/generic";
 
-export default function MovieCard({ movie, delay, dimensions }) {
+export default function MovieCard({ movie, delay }) {
   const imgSrc = "https://image.tmdb.org/t/p/original/" + movie.poster_path;
+
+  const releaseDateVariants = {
+    visible: {
+      opacity: [0.2, 0.5, 0.7, 1, 0.7, 0.5, 0.2, 0],
+      transition: { repeat: Infinity, duration: 1 },
+    },
+  };
 
   return (
     <StyledMovieCard>
@@ -26,11 +33,7 @@ export default function MovieCard({ movie, delay, dimensions }) {
 
       <InfoContainer>
         <BigTitle>{movie.title}</BigTitle>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, yoyo: Infinity }}
-        >
+        <motion.div variants={releaseDateVariants} animate="visible">
           <ReleaseDate>{`Release Date: ${movie.release_date}`}</ReleaseDate>
         </motion.div>
         {movie.overview}

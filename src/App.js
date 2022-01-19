@@ -18,14 +18,9 @@ const AppContainer = styled.div`
 const PageContainer = styled.div`
   width: 350px;
   background-color: #ffffff;
-  height: 500px;
   padding: 10px 20px;
+  border-radius: 5px;
 `;
-
-const containerDimensions = {
-  height: "100px",
-  width: "100%",
-};
 
 function App() {
   return (
@@ -33,15 +28,8 @@ function App() {
       <PageContainer>
         <BrowserRouter>
           <Routes>
-            <Route
-              path="/"
-              element={<MainPage dimensions={containerDimensions} />}
-              dimensions={containerDimensions}
-            />
-            <Route
-              path="/movie/:id"
-              element={<Movie dimensions={containerDimensions} />}
-            />
+            <Route path="/" element={<MainPage />} />
+            <Route path="/movie/:id" element={<Movie />} />
           </Routes>
         </BrowserRouter>
       </PageContainer>

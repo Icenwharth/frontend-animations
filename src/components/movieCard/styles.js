@@ -11,7 +11,6 @@ export const StyledMovieCard = styled(motion.div)`
   margin-bottom: 20px;
   border-radius: 10px;
   background: #5f8384;
-  cursor: pointer;
 `;
 
 export const InfoContainer = styled.div`
@@ -25,6 +24,7 @@ export const Poster = styled(SuspenseImage)`
   height: 100px;
   background: grey;
   border-radius: 10px;
+  cursor: pointer;
 `;
 
 export const ReleaseDate = styled(MediumTitle)`
